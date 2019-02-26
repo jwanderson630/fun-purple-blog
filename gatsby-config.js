@@ -2,7 +2,8 @@ module.exports = {
   siteMetadata: {
     title: `Fun purple blog`,
     description: `Wow, this blog is fun and PURPLE!`,
-    author: `@gatsbyjs`
+    author: `@gatsbyjs`,
+    siteUrl: "https://upbeat-goldwasser-664eb5.netlify.com"
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -42,6 +43,8 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-image`,
+    `gatsby-plugin-netlify-cms`,
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-netlify`
   ]
 };
