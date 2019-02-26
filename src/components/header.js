@@ -1,19 +1,40 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import { Link } from "gatsby";
+import PropTypes from "prop-types";
+import React from "react";
+import styled from "styled-components";
+
+const StyledHeader = styled.header`
+  display: grid;
+  grid-template-columns: [pad-left] 25px [main] 6fr [pad-right] 25px;
+  grid-gap: 10px;
+  box-shadow: 2px 10px 35px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0px;
+  z-index: 10;
+  @media (min-width: 850px) {
+    grid-template-columns: [pad-left] minmax(10px, 1fr) [main] 6fr [side] 2fr [pad-right] minmax(
+        10px,
+        1fr
+      );
+    grid-gap: 25px;
+  }
+  div {
+    grid-column: main / side;
+  }
+  h1 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+`;
 
 const Header = ({ siteTitle }) => (
-  <header
+  <StyledHeader
     style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
+      background: `rebeccapurple`
     }}
   >
     <div
       style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
+        padding: `1.5rem 0`
       }}
     >
       <h1 style={{ margin: 0 }}>
@@ -21,22 +42,22 @@ const Header = ({ siteTitle }) => (
           to="/"
           style={{
             color: `white`,
-            textDecoration: `none`,
+            textDecoration: `none`
           }}
         >
           {siteTitle}
         </Link>
       </h1>
     </div>
-  </header>
-)
+  </StyledHeader>
+);
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+  siteTitle: PropTypes.string
+};
 
 Header.defaultProps = {
-  siteTitle: ``,
-}
+  siteTitle: ``
+};
 
-export default Header
+export default Header;
